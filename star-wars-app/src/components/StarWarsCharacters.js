@@ -14,7 +14,7 @@ export default function StarWarsCharacters() {
     setIsLoading(true);
     const getCharacters = async () => {
       const characters = await getData(url);
-      console.log(characters);
+      console.log("This is characters:", characters);
       setNext(characters.next);
       setPrevious(characters.previous);
       setCharacters(characters.results);
@@ -51,10 +51,10 @@ export default function StarWarsCharacters() {
         </>
       )}
       <div className="buttons">
-        <button onClick={goToPrevious} disabled={!previous}>
+        <button data-testid="prevbtn" onClick={goToPrevious} disabled={!previous}>
           Previous
         </button>
-        <button onClick={goToNext} disabled={!next}>
+        <button data-testid="nextbtn" onClick={goToNext} disabled={!next}>
           Next
         </button>
       </div>
